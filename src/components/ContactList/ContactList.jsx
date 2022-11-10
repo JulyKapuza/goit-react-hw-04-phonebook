@@ -3,21 +3,21 @@ import React from 'react';
 import css from './ContactList.module.css';
 import ContactItem from 'components/ContactItem/ContactItem';
 
-const ContactList = ({ contacts, onDeleteContact }) => (
-  <ul className={css.contactList}>
-    {contacts.map(({ id, name, number }) => (
-      <ContactItem
-        key={id}
-        id={id}
-        name={name}
-        number={number}
-        onDeleteContact={onDeleteContact}
-      ></ContactItem>
-    ))}
-  </ul>
-);
-
-export default ContactList;
+export default function ContactList({ contacts, onDeleteContact }) {
+  return (
+    <ul className={css.contactList}>
+      {contacts.map(({ id, name, number }) => (
+        <ContactItem
+          key={id}
+          id={id}
+          name={name}
+          number={number}
+          onDeleteContact={onDeleteContact}
+        ></ContactItem>
+      ))}
+    </ul>
+  );
+}
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
